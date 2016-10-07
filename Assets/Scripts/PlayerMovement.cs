@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.D) && !emMovimento)
         {
             // "Jogar" o dado
@@ -42,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
             if (transform.position != nextPosTransform.position)
             {
                 // Executar o movimento do personagem
-                // transform.Translate(sentidoMov * Time.deltaTime);
                 transform.position = Vector2.MoveTowards(transform.position, nextPosTransform.position, Time.deltaTime);
             }
             else
@@ -51,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 valorDado--;
                 // Ajustar a posição atual
                 posAtual = nextPos;
-                // Setar a nova posição, cuidando o tamanho do tabuleiro
+                // Setar a próxima posição, cuidando o tamanho do tabuleiro
                 nextPos = posAtual == tamTabuleiro - 1 ? 0 : nextPos + 1;
                 // Buscar a próxima posição para movimentar o personagem
                 nextPosTransform = GameObject.Find("casa" + nextPos).transform;
@@ -64,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
                     // Após o personagem terminar a sua movimentação,
                     // executar alguma outra ação a partir daqui!!! 
-
+                    Debug.Log("Cheguei ao destino!");
                 }
             }
         }
