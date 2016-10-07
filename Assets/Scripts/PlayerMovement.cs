@@ -61,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
                 if (valorDado == 0)
                 {
                     emMovimento = false;
+
+                    // Após o personagem terminar a sua movimentação,
+                    // executar alguma outra ação a partir daqui!!! 
+
                 }
             }
         }
