@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 55db4f67e8618e64f9015e7546a6141e
-timeCreated: 1475823904
+timeCreated: 1475884565
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Mobile - Farm Heroes Saga - Board Sprites 12_0
     21300002: Mobile - Farm Heroes Saga - Board Sprites 12_1
     21300004: Mobile - Farm Heroes Saga - Board Sprites 12_2
+    21300006: ValorDado
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -20,7 +21,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: 0.25
+    heightScale: .25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -32,7 +33,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -45,18 +46,15 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 170
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    serializedVersion: 2
     sprites:
-    - serializedVersion: 2
-      name: Mobile - Farm Heroes Saga - Board Sprites 12_0
+    - name: Mobile - Farm Heroes Saga - Board Sprites 12_0
       rect:
         serializedVersion: 2
         x: 1280
@@ -64,12 +62,9 @@ TextureImporter:
         width: 170
         height: 170
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mobile - Farm Heroes Saga - Board Sprites 12_1
+    - name: Mobile - Farm Heroes Saga - Board Sprites 12_1
       rect:
         serializedVersion: 2
         x: 1280
@@ -77,12 +72,9 @@ TextureImporter:
         width: 170
         height: 170
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Mobile - Farm Heroes Saga - Board Sprites 12_2
+    - name: Mobile - Farm Heroes Saga - Board Sprites 12_2
       rect:
         serializedVersion: 2
         x: 1671
@@ -90,11 +82,18 @@ TextureImporter:
         width: 119
         height: 156
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    outline: []
+    - name: ValorDado
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 1710
+        width: 172
+        height: 150
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 1, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

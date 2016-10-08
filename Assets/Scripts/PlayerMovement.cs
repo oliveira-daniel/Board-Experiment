@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private int valorDado, posAtual, nextPos, tamTabuleiro;
+    private int valorDado, posAtual, proxPos, tamTabuleiro;
     private bool emMovimento;
-    private Transform nextPosTransform;
+    private Transform proxPosTransform;
+	public Text textCasas;
 
     // Use this for initialization
     void Start()
@@ -16,12 +18,15 @@ public class PlayerMovement : MonoBehaviour
         tamTabuleiro = GameObject.Find("Board").transform.childCount;
 
         // Setar a próxima posição no início do jogo
-        nextPos = posAtual + 1;
+		proxPos = posAtual + 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+		// Desativar a contagem
+		ActivateDiceUI(emMovimento);
+
         if (Input.GetKeyDown(KeyCode.D) && !emMovimento)
         {
             // "Jogar" o dado
@@ -29,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
             // Ligar o movimento
             emMovimento = true;
             // Buscar a nova posição para movimentar o personagem
-            nextPosTransform = GameObject.Find("casa" + nextPos).transform;
+			proxPosTransform = GameObject.Find("casa" + proxPos).transform;
 
             Debug.Log("Mover " + valorDado + " casas...");
         }
@@ -38,21 +43,21 @@ public class PlayerMovement : MonoBehaviour
         {
             // Definição do sentido do movimento
             // Verificar as casas visitadas
-            if (transform.position != nextPosTransform.position)
+			if (transform.position != proxPosTransform.position)
             {
                 // Executar o movimento do personagem
-                transform.position = Vector2.MoveTowards(transform.position, nextPosTransform.position, Time.deltaTime);
+				transform.position = Vector2.MoveTowards(transform.position, proxPosTransform.position, Time.deltaTime);
             }
             else
             {
                 // Diminuir o valor do dado
                 valorDado--;
                 // Ajustar a posição atual
-                posAtual = nextPos;
+				posAtual = proxPos;
                 // Setar a próxima posição, cuidando o tamanho do tabuleiro
-                nextPos = posAtual == tamTabuleiro - 1 ? 0 : nextPos + 1;
+				proxPos = posAtual == tamTabuleiro - 1 ? 0 : proxPos + 1;
                 // Buscar a próxima posição para movimentar o personagem
-                nextPosTransform = GameObject.Find("casa" + nextPos).transform;
+				proxPosTransform = GameObject.Find("casa" + proxPos).transform;
 
                 // Verificar a próxima jogada do dado,
                 // caso verdadeiro, parar a movimentação.
@@ -63,8 +68,25 @@ public class PlayerMovement : MonoBehaviour
                     // Após o personagem terminar a sua movimentação,
                     // executar alguma outra ação a partir daqui!!! 
                     Debug.Log("Cheguei ao destino!");
+
                 }
             }
+
+			// Escrever a movimentaçao na tela
+			EscreverCasasAMovimentar(valorDado);
         }
     }
+
+	// Escrever na HUD
+	void EscreverCasasAMovimentar(int valor) {
+		// Se o campo de texto nao for nulo, escrever
+		if (textCasas != null) {
+			textCasas.text = valor.ToString();
+		}
+	}
+
+	// Ativar o HUD representando os dados
+	void ActivateDiceUI(bool activate) {
+		textCasas.transform.parent.gameObject.SetActive(activate);
+	}
 }
